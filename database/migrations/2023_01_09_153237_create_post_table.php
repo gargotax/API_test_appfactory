@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('body');
-            $table->integer('owner_id');
+            $table->integer('owner_id')-> nullable();
             $table->timestamps();
         });
     }
