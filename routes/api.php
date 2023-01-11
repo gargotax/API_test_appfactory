@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +18,11 @@ use App\Http\Controllers\Controller;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 
-   // Route::apiResource('/authors', AuthorsController::class);
+    // Route::apiResource('/authors', AuthorsController::class);
 });
 
-//Route::post('post', [Controller::class, "storePost"]);
-Route::get('post/{post_id?}', [Controller::class, "readPost"]);
-Route::put('post/{post}', [Controller::class, 'updatePost']);
-Route::delete('post/{post}', [Controller::class, 'deletePost']);
+Route::post('post', [PostController::class, "storePost"]);
+Route::get('post/{post?}', [PostController::class, "readPost"]);
+Route::put('post/{post}', [PostController::class, 'updatePost']);
+Route::delete('post/{post}', [PostController::class, 'deletePost']);
 
