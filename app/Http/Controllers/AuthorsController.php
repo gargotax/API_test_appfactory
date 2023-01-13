@@ -14,7 +14,7 @@ class AuthorsController extends Controller
     {
         $author= Author::create([
             "name"=> $request->input('name', 'xyz'),
-            "lastname"=>$request->input('lastname'),
+            "lastname"=>$request->input('lastname', 'xyz'),
             "birthday"=>$request->input('birthday'),
         ]);
         return $author;
@@ -44,7 +44,7 @@ class AuthorsController extends Controller
         return $findAuthor->get();
     }
         public function deleteAuthor(Request $request, Author $deleteauthor)
-    {
+        {
         return $deleteauthor->delete();
-    }
+        }
 }
