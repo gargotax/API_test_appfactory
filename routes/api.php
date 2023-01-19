@@ -1,10 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +35,9 @@ Route::prefix('user')->group(function () {
     Route::delete('{deleteuser}', [UserController::class, 'deleteUser']);
 });
 
-    Route::post('author', [AuthorsController::class, 'newAuthor']);
-    Route::get('author', [AuthorsController::class, 'findAuthor']);
-    Route::put('author/{modifyauthor}', [AuthorsController::class, 'modifyAuthor']);
-    Route::delete('author', [AuthorsController::class, 'deleteAuthor']);
+Route::post('author', [AuthorsController::class, 'newAuthor']);
+Route::get('author', [AuthorsController::class, 'findAuthor']);
+Route::put('author/{modifyauthor}', [AuthorsController::class, 'modifyAuthor']);
+Route::delete('author', [AuthorsController::class, 'deleteAuthor']);
+
+Route::apiResource('company', CompanyController::class);
