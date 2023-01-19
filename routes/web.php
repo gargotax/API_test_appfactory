@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 // rotta che manda una view
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 /*
  ESEMPI PER CAPIRE IL FUNZIONAMENTO DELLE ROTTE

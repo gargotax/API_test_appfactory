@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
     public function createUser(Request $request){
@@ -19,30 +20,30 @@ class UserController extends Controller
         return $user;
     }
 
-    public function findUser(Request $request, User $finduser=null){
-        if($finduser) return $finduser;
+    public function findUser(Request $request, User $user=null){
+        if($user) return $user;
 
-        $finduser = User::query();
+        $getuser = User::query();
         if ($request->has('name'))
-            $finduser->where('name', $request->input('name'));
+            $getuser->where('name', $request->input('name'));
 
         if ($request->has('email'))
-            $finduser->where('email', $request->input('email'));
+            $getuser->where('email', $request->input('email'));
 
         if ($request->has('password'))
-            $finduser->where('password', $request->input('password'));
+            $getuser->where('password', $request->input('password'));
 
-        return $finduser->get();
+        return $getuser->get();
     }
 
-    public function updateUser(Request $request, User $update){
-        $update->name = $request->input('name');
-        $update->email = $request->input('email');
-        $update->save();
-        return $update;
+    public function updateUser(Request $request, User $user){
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->save();
+        return $user;
     }
 
-    public function deleteUser(Request $request, User $delete){
-        return $delete->delete();
+    public function deleteUser(Request $request, User $deleteuser){
+        return $deleteuser->delete();
     }
 }

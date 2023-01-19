@@ -29,11 +29,14 @@ Route::get('post/{post?}', [PostController::class, "readPost"]);
 Route::put('post/{post}', [PostController::class, 'updatePost']);
 Route::delete('post/{post}', [PostController::class, 'deletePost']);
 
-Route::post('user', [UserController::class, "createUser"]);
-Route::get('user/{finduser?}', [UserController::class, "findUser"]);
-Route::put('user/{update}', [UserController::class, 'updateUser']);
-Route::delete('user/{delete}', [UserController::class, 'deleteUser']);
+Route::prefix('user')->group(function () {
+    Route::post('', [UserController::class, "createUser"]);
+    Route::get('{user?}', [UserController::class, "findUser"]);
+    Route::put('{user}', [UserController::class, 'updateUser']);
+    Route::delete('{deleteuser}', [UserController::class, 'deleteUser']);
+});
 
-Route::post('author', [AuthorsController::class, 'newAuthor']);
-Route::get('author', [AuthorsController::class, 'findAuthor']);
-Route::delete('author', [AuthorsController::class, 'deleteAuthor']);
+    Route::post('author', [AuthorsController::class, 'newAuthor']);
+    Route::get('author', [AuthorsController::class, 'findAuthor']);
+    Route::put('author/{modifyauthor}', [AuthorsController::class, 'modifyAuthor']);
+    Route::delete('author', [AuthorsController::class, 'deleteAuthor']);

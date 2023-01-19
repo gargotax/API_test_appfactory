@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author;
 use Illuminate\Http\Request;
-use Illuminate\Tests\Integration\Http\Fixtures\Author;
+use Illuminate\Support\Facades\Log;
 
 class AuthorsController extends Controller
 {
@@ -17,7 +18,9 @@ class AuthorsController extends Controller
             "lastname"=>$request->input('lastname', 'xyz'),
             "birthday"=>$request->input('birthday'),
         ]);
+
         return $author;
+
     }
 
     public function findAuthor(Request $request, Author $findAuthor=null)
@@ -43,8 +46,30 @@ class AuthorsController extends Controller
         }
         return $findAuthor->get();
     }
-        public function deleteAuthor(Request $request, Author $deleteauthor)
+
+    public function modifyAuthor (Request $request, Author $modifyauthor)
+    {
+
+        /*
+
+         $params = $request->all();
+
+        foreach ($params as $key=> $value)
         {
-        return $deleteauthor->delete();
+            $modifyauthor->$key=$value;
         }
+        */
+        $modifyauthor->fill( $request->all());
+
+        $modifyauthor->save();
+        return $modifyauthor;
+
+
+
+    }
+    public function deleteAuthor(Request $request, Author $deleteauthor)
+    {
+        return $deleteauthor->delete();
+    }
+
 }
