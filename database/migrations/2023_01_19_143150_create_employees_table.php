@@ -18,9 +18,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('lastname');
-            $table->enum('role', ['frontend', 'backend']);
-            $table->integer('age');
-            $table->integer('salary');
+            $table->enum('role', ['frontend', 'backend'])->default('backend');
+            $table->integer('age')->nullable();
+            $table->integer('salary')->nullable();
             $table->foreignIdFor(Company::class);
             $table->timestamps();
         });

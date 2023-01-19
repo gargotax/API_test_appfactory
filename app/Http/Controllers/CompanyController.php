@@ -24,4 +24,27 @@ class CompanyController extends Controller
       return $company;
 
     }
+
+    public function show(Request $request, Company $company)
+    {
+        return $company;
+    }
+
+    public function index(Request $request)
+    {
+        $allCompanies = Company::query()->where('field', $request->input("field") )->get();
+        return $allCompanies;
+    }
+
+    public function update(Request $request, Company $company)
+    {
+       $company->fill($request->all());
+        $company->save();
+        return $company;
+    }
+
+    public function destroy(Request $request, Company $company)
+    {
+       return $company->delete();
+    }
 }
