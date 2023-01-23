@@ -21,7 +21,7 @@ class EmployeeController extends Controller
         //$response = Employee::query()->where('id', $employee)->first();
         //$response = Employee::find($employee);
 
-        return $employee;
+        return $employee->load('company');
     }
 
     public function update(Request $request, Employee $employee)

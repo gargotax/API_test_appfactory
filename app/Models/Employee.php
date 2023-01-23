@@ -20,8 +20,8 @@ class Employee extends Model
     protected $fillable= ['name', 'lastname', 'role', 'age', 'salary', 'company_id'];
 
 
-    public function Company()
+    public function company()
     {
-        $this->belongsTo(Company::class);
+        return $this->belongsTo(Company::class);
     }
 }
