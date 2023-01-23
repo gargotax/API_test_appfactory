@@ -11,12 +11,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string role
  * @property integer age
  * @property integer salary
+ * @property integer company_id
  */
 class Employee extends Model
 {
     use HasFactory;
 
-    protected $fillable= ['name', 'lastname', 'role', 'age', 'salary'];
+    protected $fillable= ['name', 'lastname', 'role', 'age', 'salary', 'company_id'];
 
 
     public function Company()

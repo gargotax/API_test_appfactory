@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorsController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,6 @@ Route::put('author/{modifyauthor}', [AuthorsController::class, 'modifyAuthor']);
 Route::delete('author', [AuthorsController::class, 'deleteAuthor']);
 
 Route::apiResource('company', CompanyController::class);
+//Route::get('employee/{employee}', [EmployeeController::class, 'show']);
+Route::put('employee/{employee}', [EmployeeController::class, "update"]);
+Route::apiResource('employee', EmployeeController::class);
