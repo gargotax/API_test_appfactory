@@ -27,7 +27,7 @@ class CompanyController extends Controller
 
     public function show(Request $request, Company $company)
     {
-        return $company;
+        return $company->load('employees');
     }
 
     public function index(Request $request)

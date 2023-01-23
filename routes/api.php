@@ -43,5 +43,5 @@ Route::delete('author', [AuthorsController::class, 'deleteAuthor']);
 
 Route::apiResource('company', CompanyController::class);
 //Route::get('employee/{employee}', [EmployeeController::class, 'show']);
-Route::put('employee/{employee}', [EmployeeController::class, "update"]);
+//Route::put('employee/{employee}', [EmployeeController::class, "update"]);
 Route::apiResource('employee', EmployeeController::class);
