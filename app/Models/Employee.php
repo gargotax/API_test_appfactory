@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property string name
+ * @property integer id
  * @property string lastname
  * @property string role
  * @property integer age

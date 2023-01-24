@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorsController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -45,3 +46,6 @@ Route::apiResource('company', CompanyController::class);
 //Route::get('employee/{employee}', [EmployeeController::class, 'show']);
 //Route::put('employee/{employee}', [EmployeeController::class, "update"]);
 Route::apiResource('employee', EmployeeController::class);
+Route::get('isCollegue/{employee1}/{employee2}', [Controller::class, 'isCollegue']);
+
+Route::get('collegue/{employee}', [EmployeeController::class, 'collegue']);

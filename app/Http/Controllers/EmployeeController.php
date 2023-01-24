@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -34,5 +33,14 @@ class EmployeeController extends Controller
     public function destroy(Request $request, Employee $employee)
     {
         return $employee->delete();
+    }
+
+    public function collegue(Request $request, Employee $employee)
+    {
+        return Employee::query()
+            ->where('company_id', '=', $employee->company_id)
+            ->where('id', '!=', $employee->id)
+            ->get();
+
     }
 }
