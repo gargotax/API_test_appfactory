@@ -43,4 +43,13 @@ class EmployeeController extends Controller
             ->get();
 
     }
+
+    public function employeeAge(Request $request, int $age1, int $age2)
+    {
+        return Employee::query()
+            ->where('age', '>=', $age1)
+            ->where('age', '<=', $age2)
+            ->get();
+
+    }
 }
