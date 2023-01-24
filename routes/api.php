@@ -49,3 +49,4 @@ Route::apiResource('employee', EmployeeController::class);
 Route::get('isCollegue/{employee1}/{employee2}', [Controller::class, 'isCollegue']);
 
 Route::get('collegue/{employee}', [EmployeeController::class, 'collegue']);
+
