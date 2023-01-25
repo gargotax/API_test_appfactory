@@ -16,7 +16,7 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'field', 'city', 'city'];
+    protected $fillable = ['name', 'field', 'city'];
 
     public function employees()
     {

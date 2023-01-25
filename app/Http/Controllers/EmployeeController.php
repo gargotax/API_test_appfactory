@@ -52,4 +52,28 @@ class EmployeeController extends Controller
             ->get();
 
     }
+
+    public function filterEmployee(Request $request)
+    {
+        $data = Employee::query();
+        $params = $request->all();
+
+        /*
+        if($request->has('role'))
+            $data->where('role', $request->input('role'));
+        if($request->has('age'))
+            $data->where('age', $request->input('age'));
+        if ($request->has('company_id'))
+            $data->where('company_id', $request->input('company_id'));
+*/
+        foreach ($params as $key=> $value)
+        {
+            $data->where($key, $value);
+        }
+
+        return $data->get();
+
+    }
+
+
 }

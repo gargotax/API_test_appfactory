@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -51,7 +52,7 @@ class CompanyController extends Controller
     {
         return Company::query()
             ->where('state', $state)
-        ->get();
+            ->get();
     }
 
     public function statoAzienda(Request $request)
@@ -59,6 +60,7 @@ class CompanyController extends Controller
         return Company::query()
             ->where('state', $request->input('state'))->get();
     }
+
 
 
 }
