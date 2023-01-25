@@ -51,3 +51,9 @@ Route::get('isCollegue/{employee1}/{employee2}', [Controller::class, 'isCollegue
 Route::get('collegue/{employee}', [EmployeeController::class, 'collegue']);
 
 Route::get('employee/age/{age1}/{age2}', [EmployeeController::class, 'employeeAge']);
+
+Route::get('company/state/{state}', [CompanyController::class, 'stateCompany']);
+Route::get('company2/state', [CompanyController::class, 'statoAzienda']);
+Route::get('filterCompany', [CompanyController::class, 'filterCompany']);
+
+
