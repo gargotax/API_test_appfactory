@@ -55,7 +55,7 @@ Route::get('employee/age/{age1}/{age2}', [EmployeeController::class, 'employeeAg
 Route::get('company/state/{state}', [CompanyController::class, 'stateCompany']);
 Route::get('company2/state', [CompanyController::class, 'statoAzienda']);
 
-
+//test branch master
 
 Route::get('filterEmployee', [EmployeeController::class, 'filterEmployee']);
 
