@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->string('state')->after('city')->nullable();
+        Schema::create('skills', function (Blueprint $table) {
+            $table->id();
+            $table->string('skill');
+            $table->timestamps();
         });
     }
 
@@ -25,9 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->removeColumn('state');
-
-        });
+        Schema::dropIfExists('skills');
     }
 };

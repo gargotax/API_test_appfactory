@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,5 +59,7 @@ Route::get('company2/state', [CompanyController::class, 'statoAzienda']);
 
 
 Route::get('filterEmployee', [EmployeeController::class, 'filterEmployee']);
+
+Route::post('skills', [SkillsController::class, 'newSkills']);
 
 
